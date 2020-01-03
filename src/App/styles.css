@@ -1,0 +1,16 @@
+.app {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  min-height: 100vh;
+}
+
+.app > * {
+  margin-right: 1rem;
+}
+
+.app__section {
+  flex: 1;
+  min-width: 0;
+}
