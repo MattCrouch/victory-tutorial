@@ -27,3 +27,7 @@ h2,
 h3 {
   font-family: "Roboto Mono", Roboto, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
+h2 {
+  font-size: 1.25rem;
+}

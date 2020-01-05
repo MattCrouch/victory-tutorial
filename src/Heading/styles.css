@@ -6,8 +6,9 @@
 
 .heading__arrow {
   flex: 0;
-  margin-top: 0.3em;
+  margin-top: 0.4em;
   margin-right: 0.5em;
+  height: 1rem;
 }
 
 .heading__text {
