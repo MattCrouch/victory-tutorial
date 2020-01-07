@@ -1,15 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import { format } from "date-fns";
 import { VictoryAxis, VictoryChart, VictoryLine } from "victory";
+import { ResponseTimesContext } from "../DataProvider";
 import "./styles.css";
 
-const ResponseChart = ({ data }) => {
+const ResponseChart = () => {
+  const responseTimes = useContext(ResponseTimesContext);
+
+  // TODO: Remove hard-coding of GET_PRODUCTS
+  const data = responseTimes.GET_PRODUCTS.map(datum => ({
+    x: datum.timestamp,
+    y: datum.length
+  }));
+
   return (
     <div className="responseChart">
-      <VictoryChart domainPadding={5}>
+      <VictoryChart domain={{ y: [0, 5] }} domainPadding={5}>
         <VictoryAxis
-          // tickCount={3}
           tickFormat={tick => format(new Date(tick), "h:mma")}
           style={{
             tickLabels: {
@@ -42,15 +49,6 @@ const ResponseChart = ({ data }) => {
       </VictoryChart>
     </div>
   );
-};
-
-ResponseChart.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      x: PropTypes.number.isRequired,
-      y: PropTypes.number.isRequired
-    })
-  ).isRequired
 };
 
 export default ResponseChart;
