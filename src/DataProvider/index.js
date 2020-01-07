@@ -1,19 +1,37 @@
 import React, { useEffect, useState } from "react";
 import ENDPOINTS from "../Endpoints";
 
+const RESPONSE_TIME_INTERVAL = 5000;
+const MAX_RESPONSE_TIMES = 10;
+
 export const UptimeContext = React.createContext();
 export const ResponseTimesContext = React.createContext();
+
+const generateNewResponseTime = (timestamp = Date.now()) => ({
+  timestamp,
+  length: Math.round(Math.random() * 5 * 100) / 100
+});
 
 export const DataProvider = ({ children }) => {
   const [uptime, setUptime] = useState(0.99);
   const [responseTimes, setResponseTimes] = useState(
-    ENDPOINTS.reduce(
-      (accumulator, currentValue) => ({
+    ENDPOINTS.reduce((accumulator, currentValue) => {
+      const initialValues = [];
+
+      // Generate some response times before the current time
+      for (let i = 0; i < MAX_RESPONSE_TIMES; i++) {
+        initialValues.push(
+          generateNewResponseTime(
+            Date.now() - (MAX_RESPONSE_TIMES - i) * RESPONSE_TIME_INTERVAL
+          )
+        );
+      }
+
+      return {
         ...accumulator,
-        [currentValue.id]: []
-      }),
-      {}
-    )
+        [currentValue.id]: initialValues
+      };
+    }, {})
   );
 
   console.log(responseTimes);
@@ -46,16 +64,13 @@ export const DataProvider = ({ children }) => {
           return {
             ...accumulator,
             [currentKey]: [
-              ...currentValue,
-              {
-                timestamp: Date.now(),
-                length: Math.round(Math.random() * 5 * 100) / 100
-              }
+              ...currentValue.slice(-MAX_RESPONSE_TIMES + 1),
+              generateNewResponseTime()
             ]
           };
         }, responseTimes)
       );
-    }, 5000);
+    }, RESPONSE_TIME_INTERVAL);
 
     return () => {
       clearInterval(interval);
