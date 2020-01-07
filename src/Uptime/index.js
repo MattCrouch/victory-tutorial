@@ -1,9 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import { VictoryLabel, VictoryPie } from "victory";
+import { UptimeContext } from "../DataProvider";
 import "./styles.css";
 
-const Uptime = ({ value }) => {
+const Uptime = () => {
+  const value = useContext(UptimeContext);
+
   // Clamp uptime percentage between 0 and 1
   const percentage = Math.min(Math.max(value, 0), 1);
 
@@ -32,7 +34,7 @@ const Uptime = ({ value }) => {
             data: {
               fill: ({ datum }) => {
                 const color =
-                  datum.y > 0.9
+                  datum.y > 0.98
                     ? "var(--success-color)"
                     : "var(--warning-color)";
                 return datum.x === "uptime" ? color : "transparent";
@@ -54,10 +56,6 @@ const Uptime = ({ value }) => {
       </svg>
     </div>
   );
-};
-
-Uptime.propTypes = {
-  value: PropTypes.number.isRequired
 };
 
 export default Uptime;
