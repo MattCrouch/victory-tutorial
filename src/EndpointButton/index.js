@@ -10,7 +10,7 @@ const EndpointButton = ({ endpoint, onClick, responseTime }) => (
         <span className="endpointButton__route">{endpoint.route}</span>
       </div>
       <div className="endpointButton__response-time">
-        {responseTime.toFixed(2)}
+        {responseTime.toFixed(2)}s
       </div>
     </div>
   </button>
