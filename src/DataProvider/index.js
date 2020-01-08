@@ -34,8 +34,6 @@ export const DataProvider = ({ children }) => {
     }, {})
   );
 
-  console.log(responseTimes);
-
   // Update uptime every minute
   useEffect(() => {
     const interval = setInterval(() => {

@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { format } from "date-fns";
 import { VictoryAxis, VictoryChart, VictoryLine } from "victory";
 import { ResponseTimesContext } from "../DataProvider";
 import "./styles.css";
 
-const ResponseChart = () => {
+const ResponseChart = ({ currentEndpoint }) => {
   const responseTimes = useContext(ResponseTimesContext);
 
-  // TODO: Remove hard-coding of GET_PRODUCTS
-  const data = responseTimes.GET_PRODUCTS.map(datum => ({
+  const data = responseTimes[currentEndpoint].map(datum => ({
     x: datum.timestamp,
     y: datum.length
   }));
@@ -49,6 +49,10 @@ const ResponseChart = () => {
       </VictoryChart>
     </div>
   );
+};
+
+ResponseChart.propTypes = {
+  currentEndpoint: PropTypes.string.isRequired
 };
 
 export default ResponseChart;
