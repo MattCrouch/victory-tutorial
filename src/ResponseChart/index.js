@@ -57,10 +57,10 @@ const ResponseChart = ({ currentEndpoint }) => {
           tickFormat={tick => `${Number(tick).toFixed(2)}s`}
         />
         <VictoryLine
+          data={responseTimes[currentEndpoint]}
           style={{
             data: { stroke: "var(--foreground-color)", strokeWidth: 5 }
           }}
-          data={responseTimes[currentEndpoint]}
           x="timestamp"
           y="length"
         />
