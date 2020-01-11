@@ -14,18 +14,13 @@ import "./styles.css";
 const ResponseChart = ({ currentEndpoint }) => {
   const responseTimes = useContext(ResponseTimesContext);
 
-  const data = responseTimes[currentEndpoint].map(datum => ({
-    x: datum.timestamp,
-    y: datum.length
-  }));
-
   return (
     <div className="responseChart">
       <VictoryChart
         containerComponent={
           <VictoryVoronoiContainer
             voronoiDimension="x"
-            labels={({ datum }) => `y: ${datum.y}`}
+            labels={({ datum }) => `${datum.length}s`}
             labelComponent={
               <VictoryTooltip
                 cornerRadius={0}
@@ -65,7 +60,9 @@ const ResponseChart = ({ currentEndpoint }) => {
           style={{
             data: { stroke: "var(--foreground-color)", strokeWidth: 5 }
           }}
-          data={data}
+          data={responseTimes[currentEndpoint]}
+          x="timestamp"
+          y="length"
         />
       </VictoryChart>
     </div>
