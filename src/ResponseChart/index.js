@@ -1,7 +1,13 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { format } from "date-fns";
-import { VictoryAxis, VictoryChart, VictoryLine } from "victory";
+import {
+  VictoryAxis,
+  VictoryChart,
+  VictoryLine,
+  VictoryTooltip,
+  VictoryVoronoiContainer
+} from "victory";
 import { ResponseTimesContext } from "../DataProvider";
 import "./styles.css";
 
@@ -15,7 +21,22 @@ const ResponseChart = ({ currentEndpoint }) => {
 
   return (
     <div className="responseChart">
-      <VictoryChart domain={{ y: [0, 5] }} domainPadding={5}>
+      <VictoryChart
+        containerComponent={
+          <VictoryVoronoiContainer
+            voronoiDimension="x"
+            labels={({ datum }) => `y: ${datum.y}`}
+            labelComponent={
+              <VictoryTooltip
+                cornerRadius={0}
+                flyoutStyle={{ fill: "white" }}
+              />
+            }
+          />
+        }
+        domain={{ y: [0, 5] }}
+        domainPadding={5}
+      >
         <VictoryAxis
           tickFormat={tick => format(new Date(tick), "h:mma")}
           style={{
