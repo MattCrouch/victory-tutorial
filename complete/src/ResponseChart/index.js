@@ -68,7 +68,7 @@ const ResponseChart = ({ currentEndpoint }) => {
         {/* Create the horizontal axis */}
         {/* Format labels to show as time */}
         <VictoryAxis
-          tickFormat={tick => format(new Date(tick), "h:mma")}
+          tickFormat={tick => format(new Date(tick), "h:mm a")}
           style={{
             tickLabels: {
               fontFamily: "Roboto, sans-serif",
