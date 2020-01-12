@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import ENDPOINTS from "../Endpoints";
 
 // Mocked data fetching rate
-const RESPONSE_TIME_INTERVAL = 5000;
+const RESPONSE_TIME_INTERVAL = 60000;
 
 // How many response time values should be stored at a time
 const MAX_RESPONSE_TIMES = 10;

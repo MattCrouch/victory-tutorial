@@ -26,11 +26,15 @@ const ResponseChart = ({ currentEndpoint }) => {
       <VictoryChart
         containerComponent={
           <VictoryVoronoiContainer
-            labels={({ datum }) => `${datum.length}s`}
+            labels={({ datum }) => `${Number(datum.length).toFixed(2)}s`}
             labelComponent={
               <VictoryTooltip
                 cornerRadius={0}
-                flyoutStyle={{ fill: "white" }}
+                flyoutStyle={{
+                  fill: "var(--background-color)",
+                  strokeWidth: 2
+                }}
+                style={{ fontFamily: "Roboto Mono, Roboto, sans-serif" }}
               />
             }
             voronoiBlacklist={["danger-area"]}
