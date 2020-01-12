@@ -35,7 +35,6 @@ const ResponseChart = ({ currentEndpoint }) => {
           />
         }
         domain={{ y: [0, 5] }}
-        domainPadding={5}
       >
         {/* Create the horizontal axis */}
         {/* Format labels to show as time */}

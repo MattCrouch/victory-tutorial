@@ -1,0 +1,23 @@
+.responseChart {
+  margin: 0 auto;
+  max-width: 75%;
+  padding: 0 1rem;
+}
+
+.responseChart svg {
+  width: 100%;
+  height: auto;
+  max-height: 50vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .responseChart {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .responseChart svg {
+    max-height: auto;
+    max-width: 100%;
+  }
+}

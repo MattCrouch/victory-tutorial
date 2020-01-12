@@ -3,6 +3,7 @@
   background: none;
   color: var(--foreground-color);
   border: 0;
+  height: 100%;
   padding: 0.5rem 0.25rem;
   cursor: pointer;
   text-align: left;

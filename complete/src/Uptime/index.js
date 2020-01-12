@@ -13,13 +13,7 @@ const Uptime = () => {
     <div className="uptime">
       {/* <svg> required when `standalone` is false
       `standalone` required to place label on top of pie chart */}
-      <svg
-        width={400}
-        height={400}
-        role="img"
-        viewBox="0 0 400 400"
-        style={{ width: "100%", height: "auto" }}
-      >
+      <svg width={400} height={400} role="img" viewBox="0 0 400 400">
         {/* Create a pie component */}
         {/* Animate the changes in value */}
         {/* Create data array comparing uptime to downtime */}

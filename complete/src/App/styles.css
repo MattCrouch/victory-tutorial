@@ -32,9 +32,17 @@
 }
 
 .app__endpoints-list {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.app__endpoints-list-item {
+  flex: 1;
 }
 
 @media only screen and (max-width: 600px) {
