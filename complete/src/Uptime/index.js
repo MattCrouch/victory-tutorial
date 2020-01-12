@@ -4,6 +4,7 @@ import { UptimeContext } from "../DataProvider";
 import "./styles.css";
 
 const Uptime = () => {
+  // Connect to data context
   const value = useContext(UptimeContext);
 
   // Clamp uptime percentage between 0 and 1
