@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { VictoryLabel, VictoryPie } from "victory";
+import { VictoryContainer, VictoryLabel, VictoryPie } from "victory";
 import { UptimeContext } from "../DataProvider";
 import "./styles.css";
 
@@ -12,9 +12,9 @@ const Uptime = () => {
 
   return (
     <div className="uptime">
-      {/* <svg> required when `standalone` is false
+      {/* Container required when `standalone` is false
       `standalone` required to place label on top of pie chart */}
-      <svg width={400} height={400} role="img" viewBox="0 0 400 400">
+      <VictoryContainer width={400} height={400}>
         {/* Create a pie component */}
         {/* Animate the changes in value */}
         {/* Create data array comparing uptime to downtime */}
@@ -54,7 +54,7 @@ const Uptime = () => {
           x={200}
           y={200}
         />
-      </svg>
+      </VictoryContainer>
     </div>
   );
 };

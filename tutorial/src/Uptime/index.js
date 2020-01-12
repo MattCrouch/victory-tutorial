@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { VictoryLabel, VictoryPie } from "victory";
+import { VictoryContainer, VictoryLabel, VictoryPie } from "victory";
 import { UptimeContext } from "../DataProvider";
 import "./styles.css";
 
@@ -10,7 +10,7 @@ const Uptime = () => {
 
   return (
     <div className="uptime">
-      {/* <svg> required when `standalone` is false
+      {/* Container required when `standalone` is false
       `standalone` required to place label on top of pie chart */}
 
       {/* Create a pie component */}
