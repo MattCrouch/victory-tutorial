@@ -34,7 +34,7 @@ const ResponseChart = ({ currentEndpoint }) => {
                   fill: "var(--background-color)",
                   strokeWidth: 2
                 }}
-                style={{ fontFamily: "Roboto Mono, Roboto, sans-serif" }}
+                style={{ fontFamily: "Roboto, sans-serif" }}
               />
             }
             voronoiBlacklist={["danger-area"]}
@@ -71,7 +71,7 @@ const ResponseChart = ({ currentEndpoint }) => {
           tickFormat={tick => format(new Date(tick), "h:mma")}
           style={{
             tickLabels: {
-              fontFamily: "Roboto Mono, Roboto, sans-serif",
+              fontFamily: "Roboto, sans-serif",
               fontSize: 10
             }
           }}
@@ -89,7 +89,7 @@ const ResponseChart = ({ currentEndpoint }) => {
               strokeWidth: 1
             },
             tickLabels: {
-              fontFamily: "Roboto Mono, Roboto, sans-serif",
+              fontFamily: "Roboto, sans-serif",
               fontSize: 10
             }
           }}

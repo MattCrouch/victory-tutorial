@@ -44,7 +44,7 @@ const Uptime = () => {
         {/* Apply label to show percentage value */}
         <VictoryLabel
           style={{
-            fontFamily: "Roboto Mono, Roboto, sans-serif",
+            fontFamily: "Roboto, sans-serif",
             fontSize: "64px"
           }}
           text={`${Math.round(percentage * 100)}%`}
