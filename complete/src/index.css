@@ -3,6 +3,7 @@
   --foreground-color: #2f3640;
   --success-color: #4cd137;
   --warning-color: #e84118;
+  --warning-background-color: #ffe9e4;
 }
 
 html {

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { format } from "date-fns";
 import {
+  VictoryArea,
   VictoryAxis,
   VictoryChart,
   VictoryLine,
@@ -15,6 +16,7 @@ import "./styles.css";
 const ResponseChart = ({ currentEndpoint }) => {
   // Connect to data context
   const responseTimes = useContext(ResponseTimesContext);
+  const data = responseTimes[currentEndpoint];
 
   return (
     <div className="responseChart">
@@ -24,7 +26,6 @@ const ResponseChart = ({ currentEndpoint }) => {
       <VictoryChart
         containerComponent={
           <VictoryVoronoiContainer
-            voronoiDimension="x"
             labels={({ datum }) => `${datum.length}s`}
             labelComponent={
               <VictoryTooltip
@@ -32,10 +33,34 @@ const ResponseChart = ({ currentEndpoint }) => {
                 flyoutStyle={{ fill: "white" }}
               />
             }
+            voronoiBlacklist={["danger-area"]}
+            voronoiDimension="x"
           />
         }
         domain={{ y: [0, 5] }}
       >
+        {/* Colour in the area over 3s */}
+        <VictoryArea
+          data={[
+            {
+              x: data[0].timestamp,
+              y0: 3,
+              y: 5
+            },
+            {
+              x: data.slice(-1)[0].timestamp,
+              y0: 3,
+              y: 5
+            }
+          ]}
+          name="danger-area"
+          style={{
+            data: {
+              fill: "var(--warning-background-color)"
+            }
+          }}
+        />
+
         {/* Create the horizontal axis */}
         {/* Format labels to show as time */}
         <VictoryAxis
@@ -70,7 +95,7 @@ const ResponseChart = ({ currentEndpoint }) => {
         {/* Draw data as a line */}
         {/* Tell Victory which values to use as its x and y values */}
         <VictoryLine
-          data={responseTimes[currentEndpoint]}
+          data={data}
           style={{
             data: { stroke: "var(--foreground-color)", strokeWidth: 5 }
           }}
