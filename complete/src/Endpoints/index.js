@@ -1,3 +1,4 @@
+// Which endpoints we want to track
 export const ENDPOINTS = [
   {
     id: "GET_PRODUCTS",

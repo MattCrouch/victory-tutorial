@@ -20,6 +20,10 @@ const Uptime = () => {
         viewBox="0 0 400 400"
         style={{ width: "100%", height: "auto" }}
       >
+        {/* Create a pie component */}
+        {/* Animate the changes in value */}
+        {/* Create data array comparing uptime to downtime */}
+        {/* Style pie to look like a circular line */}
         <VictoryPie
           animate={{ duration: 200 }}
           data={[
@@ -42,16 +46,18 @@ const Uptime = () => {
             }
           }}
         />
+
+        {/* Apply label to show percentage value */}
         <VictoryLabel
-          textAnchor="middle"
-          verticalAnchor="middle"
-          x={200}
-          y={200}
           style={{
             fontFamily: "Roboto Mono, Roboto, sans-serif",
             fontSize: "64px"
           }}
           text={`${Math.round(percentage * 100)}%`}
+          textAnchor="middle"
+          verticalAnchor="middle"
+          x={200}
+          y={200}
         />
       </svg>
     </div>
