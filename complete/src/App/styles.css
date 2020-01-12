@@ -24,7 +24,17 @@
 }
 
 .app__endpoints {
+  display: flex;
+  flex-direction: column;
   grid-area: 1 / 2 / 2 / 3;
+}
+
+.app__endpoints .heading {
+  flex: 0;
+}
+
+.app__endpoints-list {
+  flex: 1;
 }
 
 .app__response {
@@ -35,7 +45,6 @@
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  height: 100%;
   list-style: none;
   margin: 0;
   padding: 0;

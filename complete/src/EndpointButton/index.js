@@ -2,8 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
 
-const EndpointButton = ({ endpoint, onClick, responseTime }) => (
-  <button className="endpointButton" onClick={onClick}>
+const EndpointButton = ({ active, endpoint, onClick, responseTime }) => (
+  <button
+    className={`endpointButton ${
+      active ? "endpointButton--active" : "endpointButton--inactive"
+    }`}
+    onClick={onClick}
+  >
     <div className="endpointButton__container">
       <div className="endpointButton__endpoint">
         {/* Show endpoint method */}
@@ -20,6 +25,7 @@ const EndpointButton = ({ endpoint, onClick, responseTime }) => (
 );
 
 EndpointButton.propTypes = {
+  active: PropTypes.bool.isRequired,
   endpoint: PropTypes.shape({
     id: PropTypes.string.isRequired,
     method: PropTypes.string.isRequired,

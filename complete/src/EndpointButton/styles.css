@@ -11,7 +11,8 @@
 }
 
 .endpointButton:focus,
-.endpointButton:hover {
+.endpointButton:hover,
+.endpointButton--active {
   background: rgba(0, 0, 0, 0.15);
 }
 

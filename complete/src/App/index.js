@@ -40,6 +40,7 @@ const App = () => {
                 <li className="app__endpoints-list-item" key={endpointId}>
                   {/* Show button with latest data */}
                   <EndpointButton
+                    active={currentEndpointKey === endpointId}
                     endpoint={endpointData}
                     responseTime={responseTimes[endpointId].slice(-1)[0].length}
                     onClick={() => setCurrentEndpointKey(endpointId)}
