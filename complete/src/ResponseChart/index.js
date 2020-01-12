@@ -97,7 +97,7 @@ const ResponseChart = ({ currentEndpoint }) => {
         <VictoryLine
           data={data}
           style={{
-            data: { stroke: "var(--foreground-color)", strokeWidth: 5 }
+            data: { stroke: "var(--foreground-color)", strokeWidth: 4 }
           }}
           x="timestamp"
           y="length"
