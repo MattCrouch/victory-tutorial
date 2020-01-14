@@ -1,14 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { format } from "date-fns";
-import {
-  VictoryArea,
-  VictoryAxis,
-  VictoryChart,
-  VictoryLine,
-  VictoryTooltip,
-  VictoryVoronoiContainer
-} from "victory";
+import { VictoryArea, VictoryAxis, VictoryChart, VictoryLine } from "victory";
 import { ResponseTimesContext } from "../DataProvider";
 import "./styles.css";
 
@@ -21,8 +14,6 @@ const ResponseChart = ({ currentEndpoint }) => {
   return (
     <div className="responseChart">
       {/* Create a chart component */}
-      {/* Use a Voronoi container to allow labels to be displayed */}
-      {/* Pad out the rest of the chart component */}
 
       {/* Colour in the area over 3s */}
 
