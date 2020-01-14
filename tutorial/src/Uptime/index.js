@@ -5,8 +5,10 @@ import "./styles.css";
 
 const Uptime = () => {
   // Connect to data context
+  const value = useContext(UptimeContext);
 
   // Clamp uptime percentage between 0 and 1
+  const percentage = Math.min(Math.max(value, 0), 1);
 
   return (
     <div className="uptime">
